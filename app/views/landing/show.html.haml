@@ -1,0 +1,16 @@
+.row{ style: "margin: 20px 0px 20px 0px" }
+  .col-lg-8.col-lg-offset-2
+    %h1 #{@username}
+  
+    %div{ style: "margin-top:20px" }
+    - if @starred_repositories.any?
+      - @starred_repositories.each do |repo|
+        %div{ style: "margin-top:10px" }
+          .pull-right
+            %span.lead #{repo.stars}
+
+          %span.lead #{repo.full_name}
+          %br
+          %span #{repo.desc}
+
+
