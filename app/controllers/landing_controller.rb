@@ -7,18 +7,18 @@ class LandingController < ApplicationController
   private
 
   def starred_repositories
-    repos = if params[:login]
-              @username = params[:login]
-              HTTParty.get("https://api.github.com/users/#{@username}/starred")
-            else
-              []
-            end
+    return [] unless params[:login]
+
+    @username = params[:login]
+    res = HTTParty.get("https://api.github.com/users/#{@username}/starred")
 
     starred_repos = []
 
-    if repos.any?
-      repos.each do |repo|
-        starred_repos << Repository.build!(repo)
+    if res.code == 200
+      if res.any?
+         res.each do |repo|
+          starred_repos << Repository.build!(repo)
+        end
       end
     end
 
