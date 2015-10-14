@@ -1,8 +1,9 @@
 .center
   .inner
     .text-center
-      %h1.big stars.me
+      %h1.big.text-success stars.me
       %p.lead What repositories have you starred on GitHub?
 
       = form_tag root_path, method: :get do
-        = text_field_tag :login, "", class: "form-control", placeholder: "Enter your github username"
+        = text_field_tag :login, "", class: "form-control text-center", placeholder: "Enter your github username", autocomplete: :off
+        = submit_tag "Submit", class: "btn btn-primary btn-lg"

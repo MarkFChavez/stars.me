@@ -18,6 +18,11 @@ gem "haml"
 gem "haml-rails"
 gem "httparty"
 
+group :development do
+  gem "pry"
+  gem "pry-rails"
+end
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
